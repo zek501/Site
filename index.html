@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOIREE MASQUEE</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  /* -------------------- Apparition des sections -------------------- */
+  section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  section.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* -------------------- Animation du header -------------------- */
+  header h1 {
+    animation: bounce 2s infinite alternate;
+    display: inline-block;
+  }
+  @keyframes bounce {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  header h2, header h3 {
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+  }
+
+  /* -------------------- Boutons onglets -------------------- */
+  .tab-btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  .tab-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-color: #444;
+    color: #fff;
+  }
+
+  /* Pulse sur bouton actif */
+  .tab-btn.active {
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.05);}
+    100% { transform: scale(1);}
+  }
+
+  /* -------------------- Galerie -------------------- */
+  .gallery img {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease;
+  }
+  .gallery img:nth-child(1) { transition-delay: 0.1s; }
+  .gallery img:nth-child(2) { transition-delay: 0.2s; }
+  .gallery img:nth-child(3) { transition-delay: 0.3s; }
+  .gallery img:nth-child(4) { transition-delay: 0.4s; }
+  .gallery img:nth-child(5) { transition-delay: 0.5s; }
+  .gallery img:nth-child(6) { transition-delay: 0.6s; }
+  .gallery img:nth-child(7) { transition-delay: 0.7s; }
+  .gallery img:nth-child(8) { transition-delay: 0.8s; }
+  .gallery img:nth-child(9) { transition-delay: 0.9s; }
+  .gallery img.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .gallery img:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+
+  /* -------------------- Contacts -------------------- */
+  .contact-card {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  .contact-card.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .contact-card img {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  .contact-card img:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  }
+  .contact-name {
+    animation: glow 1.5s infinite alternate;
+  }
+  @keyframes glow {
+    0% { text-shadow: 0 0 5px #fff;}
+    50% { text-shadow: 0 0 15px #ff0;}
+    100% { text-shadow: 0 0 5px #fff;}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Soirée Masquée</h1> 
+
+    <nav>
+      <button class="tab-btn active" data-tab="accueil">Accueil</button>
+      <button class="tab-btn" data-tab="presentation">Présentation</button>
+      <button class="tab-btn" data-tab="contacts">Contacts</button>
+    </nav>
+  </header>
+
+  <!-- Accueil -->
+  <section id="accueil" class="active">
+    <h2>Omni_Flow</h2> 
+    <h3><strong>Créateurs d’émotions, Maîtres de l’ambiance, Architectes de vos plus beaux événements.</strong></h3>
+
+    <p>Chez <strong>Omniflow</strong>, nous ne faisons pas que planifier des événements, 
+      <span class="highlight">nous créons des expériences inoubliables.</span>
+    </p>
+
+    <p>Site officiel de vente des billets pour <strong>la Soirée Masquée</strong>.</p>
+
+    <p><strong>La soirée Masquée</strong> est l’événement le plus attendu de l’année :  
+      masques, lumières, musiques, surprises…  
+      <span class="highlight">Une soirée inoubliable t’attend !</span>
+    </p>
+
+    <b>Infos essentielles</b>
+    <ul>
+      <li>Date : Jeudi 21 Août 2025</li>
+      <li> Heure : 15h30 jusqu'à XTIME</li>
+      <li> Lieu : Salle de fête Saint-Jean</li>
+      <li> Dress code : Tenue de ville</li>
+    </ul>
+
+    <b>En réservant votre billet sur ce site officiel, vous bénéficiez :</b>
+    <ul>
+      <li> Billet sécurisé avec code unique</li>
+      <li> Accès garanti</li>
+      <li> Masque offert</li>
+    </ul>
+
+    <p><b>⚠ Attention</b> : Places limitées — Réservez dès maintenant pour garantir votre accès.</p>
+  </section>
+
+  <!-- Présentation -->
+  <section id="presentation">
+    <h2>Présentation en images</h2>
+    <div class="gallery">
+      <img src="https://yt3.ggpht.com/givj51TEFsA8wSRGagTa2UskQ5VWdgxv9_GqCJPKerc4Qe_4PZ2q6nTPInaEu1lS0hy4XykK0A_Q=s1063-c-fcrop64=1,46650000b99affff-rw-nd-v1" alt="Billet">
+      <img src="https://yt3.ggpht.com/XXZx8njX32QiWVtzxI55P96HnCcsFtStm7NGf0dYiY_2gvZ08CTPFCpaCiV2KcR2fn_5c_KUAccpPh0=s800-c-fcrop64=1,00002e33ffffd1cc-rw-nd-v1" alt="Disponible">
+      <img src="https://yt3.ggpht.com/IvVqVFRofz7tcWXAMgDKZj1AMSVU0QKvjr1dW_hiYF0vBuQhryd67QeVg3fdPQlFLbFNmHzbBYD1Mg=s800-c-fcrop64=1,00002e26ffffd1d9-rw-nd-v1" alt="Affiche">
+      <img src="https://yt3.ggpht.com/H7nyK8usKVdPQFZOtwnsPfuPY4_LodKW3cBU3JJ1wkmjwzzYp-EsWMg3KZ8DfWOI8RD3ehXnknAV=s800-c-fcrop64=1,00002e26ffffd1d9-rw-nd-v1" alt="">
+      <img src="https://yt3.ggpht.com/l7xCfWsl_Itlqc5_Ran_pRGcw-JpaiczJrKtrVNygaJL-HnMSzK04Hcx_JlqlPAsynYtu7f9hSPD=s800-c-fcrop64=1,00002e26ffffd1d9-rw-nd-v1" alt="">
+      <img src="https://yt3.ggpht.com/trUu9z88lHSO5Hbw4CyYO9-v33qqCpDjy_GJJByPxXEUm6ZSlX9zGBO8MNIDgQgmQecfbLdRF-kadw=s800-c-fcrop64=1,00002e33ffffd1cc-rw-nd-v1" alt="">
+      <img src="https://yt3.ggpht.com/cI2W0MZFtQ3Zuf1pRjmbDhKO7esgMYFmDmycf7OE44aTGqpFWatHjCCe9MLB0uRqVWfSE3CPejc_=s800-c-fcrop64=1,00002e26ffffd1d9-rw-nd-v1" alt="">
+      <img src="https://yt3.ggpht.com/gXZyRYzoFO2WlaAkqL14BVeFzzZe0qanZQr-tZvzheQhodTCJK05xxr__jhuBtjyc7wnfHlauHxIEM8=s800-c-fcrop64=1,00002e33ffffd1cc-rw-nd-v1" alt="billets">
+      <img src="https://yt3.ggpht.com/401xfIlomH2VuVLCegS60NidhORNaGSRzdCkIXpbM8WPM2QhDn2ojkzUnXRTE7uSKs2bJ9TcVu81=s800-c-fcrop64=1,25820000da7dffff-rw-nd-v1" alt="">
+    <img src="https://yt3.ggpht.com/6VfPJcumdR27drqB96am2kX1cI4Ib1v1z-KcSW5wGgvIcinBSkaE-ZeobBTt2U_HJN5CHyRGjT1Dvg=s800-c-fcrop64=1,25820000da7dffff-rw-nd-v1" alt="">
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts">
+    <h2>Contact l'un des Admins pour commander</h2>
+    <div class="contacts-grid">
+      <!-- 25 cartes -->
+      <div class="contact-card">
+  <a href="https://wa.me/243898970105" target="_blank" rel="noopener">
+   <img src="https://yt3.ggpht.com/S-6T46ptee4QKLclu20nyzXhQkgm7zHuIUC4V3wS0ziFQGZrFiLb_VdnTKXYD-uMbdfjWtlkB_fSYg=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="">
+    <div class="contact-name">Zek</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243972330853" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/_FCsiubr0RW4DhlBrj-lYEe8Z-QjIZ-I8sIubpQbVKr3ameVec8C3nWAf0pXm_SCjNpNbyavi15g=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Kerly">
+    <div class="contact-name">Kerly</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243991273145" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/Dbz-fOd1dufWptC9y1seDeLeosxwrmqRcEjm8CfW0GlT5gBgEDaz1iSHXNsjCAROTRdY2EPb6_2rOg=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Mathilde">
+    <div class="contact-name">Mathilde</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243831300605" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/nu_dtHwOOKlTBE1dacRY7HEVeLThlXoLI5pUbGKh2aiHDN0VFo1vc76MIxDRd9L722LYPFQuBeAxZnM=s800-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="">
+    <div class="contact-name">Egrezia</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243846879808" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/OqadKFRwjfKQZkYaGmUKlxd5EfTpAzV7uGsYGAlcNtTZjtSbT-BI_pvZ1dJCylt2uyW6YQV7U1_kJKI=s800-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Charmant">
+    <div class="contact-name">Charmant</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243842011373" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/kRC7TfxKJ4SyLu90zLRn5fRV604OGNlY6Fy7I2BtD75DM8JiBw4DB43jBpMHMo1NPhNJOp2SCrxiGg=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Isaac Ngoy">
+    <div class="contact-name">Isaac Ngoy</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243991085499" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/VcFOvtrtDhHJ_BQvY_wFfidk5qCKVmFYR_2qFVbdb_9GwHyLaZU0CB2cIYAG16uyl4UX-_NhSjS0=s800-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Hugeutte">
+    <div class="contact-name">Hugeutte</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243898908697" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/a2h64-BQhoVtCMgf6Yn4L-C7qebUsB2cYqlK4XkeN0v7MltXk6QrgwR5_f8lTmZ-boC_E162MF2VN_Y=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Nold">
+    <div class="contact-name">Nold</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243997709179" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/NHob0CyRnppb7aHj_uHY4gWxbE3FDBtTtMoqCUihWhCnPrdZuPSwevYM8PZ4ij534fs3QY6AyY2Vjj4=s800-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Isaac">
+    <div class="contact-name">Isaac</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243895979493" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/eMkgJ-PUBXPETuaO_fjhJK9vFGkIqBqS2uke3A_CR2PSfs1NFogYA34tfO6Pb8FvlCGPZpkvjuwU8w=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Waterloo">
+    <div class="contact-name">Waterloo</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243999782183" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/faaMkc4UQCNLZj835WC_99KW8VLbmAlLbfW56uvy1dBkALw7oaN3h87WlkOwe0oOFaanzkuHVBzVRzo=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Jorvin">
+    <div class="contact-name">Jorvin</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243983981063" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/K38ryy0pjwdThwqyCXUDQqoFDY98So8YPGZ3SuzLDJAY-070r3fcenymtja4-xZOc1XkwkGPLYekLA=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="severine">
+    <div class="contact-name">severine</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243896703056" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/eJB8sDDhWsxaG2zbr6LHSh1mkwCx0BOq66t-pfVIcGG0Acj9tR0qQISKNwB-1xX7l4HFdB6wJRd_=s1600-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Mevane">
+    <div class="contact-name">Mevane</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243978047865" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/aTPjThE7JETmrTEhUNWblKJ2cgL_24k144azQV5RjP7EFd_7jaJwm0HiE885Tng851vvEecay3lK9OE=s800-c-fcrop64=1,00002009ffffdff6-rw-nd-v1" alt="Zoro">
+    <div class="contact-name">Off6_La_Production</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243820881777" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/hxWIwf0_bFs8HWcWXGsYzNZ6Iez_zyJe4Ifto8z-y7Gu16httyFaSD5K_FUqfemS1qgHnoYWlbum8w=s800-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Jos Kaz">
+    <div class="contact-name">Jos Kaz</div>
+  </a>
+</div>
+
+<div class="contact-card">
+  <a href="https://wa.me/243813480667" target="_blank" rel="noopener">
+    <img src="photo/Rach.png" alt="Rach">
+    <div class="contact-name">Rach</div>
+  </a>
+</div>
+<div class="contact-card">
+  <a href="https://wa.me/243977916750" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/qxIbT2jKPL3V1y2Z9uEBIP-ZTgYtNqvI4iiAUPHlNVKLdtCVmUnmDDjpYeKTQ_-05EkE3YTBy7uvvVY=s800-c-fcrop64=1,00002582ffffda7d-rw-nd-v1" alt="Zoro">
+    <div class="contact-name">Hadassah</div>
+  </a>
+</div>
+<div class="contact-card">
+  <a href="https://wa.me/243980530141" target="_blank" rel="noopener">
+    <img src="https://yt3.ggpht.com/lYp4kNK6orel4aFfV8awGPQkttfKSRgWYO1nnpcRCobWhHXOYfFiz3eDHAtCXGbX5kiqJRQoXfvoYw=s800-c-fcrop64=1,0000283fffffd7c0-rw-nd-v1" alt="Zoro">
+    <div class="contact-name">Omni_Flow</div>
+  </a>
+</div>
+
+     
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Soirée Masquée | Design by Zektronix_Lab</p>
+    <div style="text-align:center; margin:20px 0; font-size:18px;">
+  Nombre de visiteurs : <span id="visiteur-count">0</span>
+</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+  <script>
+// Compteur avec CountAPI
+fetch('https://api.countapi.xyz/hit/soiree-masquee/visiteurs')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visiteur-count').innerText = data.value;
+  })
+  .catch(err => {
+    console.error('Erreur compteur:', err);
+  });
+</script>
+<script>
+  // Activation progressive des images de la galerie
+  const galleryImages = document.querySelectorAll('.gallery img');
+  galleryImages.forEach(img => img.classList.add('active'));
+
+  // Activation progressive des cartes contacts
+  const contacts = document.querySelectorAll('.contact-card');
+  contacts.forEach((card, i) => {
+    setTimeout(() => card.classList.add('active'), i * 100);
+  });
+</script>
+
+</body>
+</html>
